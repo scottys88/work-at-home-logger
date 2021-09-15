@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,30 +19,11 @@ namespace Work_From_Home_Logger
         {
             InitializeComponent();
             // Add this to the form class's constructor.  
-            var addresses = GetIpAddress();
-            for (int i = 0; i < addresses.Length; i++)
-            {
-                Debug.WriteLine($"{i}, {addresses[i]}");
-            }
+            
+            DisplayCurrentIpAddresses();
         }
 
-        public string IpAddress { get; set; }
-        public string HostName { get; private set; }
-
-        public string GetHostName()
-        {
-            var hostName = Dns.GetHostName();
-            Debug.WriteLine(hostName);
-            return hostName;
-        }
-
-        public IPAddress[] GetIpAddress()
-        {
-            var hostName = GetHostName();
-            IPAddress[] addresses = Dns.GetHostAddresses(hostName);
-
-            return addresses;
-        }
+        public User user { get; set; }
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,6 +34,44 @@ namespace Work_From_Home_Logger
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DisplayCurrentIpAddresses()
+        {
+            var addresses = IpAddress.GetIpAddresses();
+
+            for(var i = 0; i < addresses.Length; i++)
+            {
+                currentIpAddressListBox.Items.Add(addresses[i]);
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {          
+        }
+
+        private void saveNameButton_Click(object sender, EventArgs e)
+        {
+            if(user == null)
+            {
+                user = new User();
+            }
+            user.Name = NameTextBox.Text;
+        }
+
+        private void saveIpAddressButton_Click(object sender, EventArgs e)
+        {
+            if (user == null)
+            {
+                user = new User();
+            }
+
+            user.IpAddresses = userIpAddressTextBox.Text;
         }
     }
 }
