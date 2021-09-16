@@ -40,16 +40,25 @@ namespace Work_From_Home_Logger
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.saveIpAddressButton = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.userIpAddressTextBox = new System.Windows.Forms.TextBox();
+            this.saveIpAddressButton = new System.Windows.Forms.Button();
             this.UserIPLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.IpAddressNameTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.userIpAddressesListView = new System.Windows.Forms.ListView();
+            this.userIpAddressesLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.userIpAddressesLabel);
+            this.panel1.Controls.Add(this.userIpAddressesListView);
             this.panel1.Controls.Add(this.currentIpAddressListBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1102, 81);
@@ -64,7 +73,7 @@ namespace Work_From_Home_Logger
             this.currentIpAddressListBox.ItemHeight = 41;
             this.currentIpAddressListBox.Location = new System.Drawing.Point(53, 152);
             this.currentIpAddressListBox.Name = "currentIpAddressListBox";
-            this.currentIpAddressListBox.Size = new System.Drawing.Size(600, 168);
+            this.currentIpAddressListBox.Size = new System.Drawing.Size(685, 168);
             this.currentIpAddressListBox.TabIndex = 1;
             // 
             // label1
@@ -117,17 +126,37 @@ namespace Work_From_Home_Logger
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.saveIpAddressButton);
-            this.panel3.Controls.Add(this.userIpAddressTextBox);
             this.panel3.Controls.Add(this.UserIPLabel);
+            this.panel3.Controls.Add(this.panel5);
             this.panel3.Location = new System.Drawing.Point(53, 450);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(977, 364);
+            this.panel3.Padding = new System.Windows.Forms.Padding(50);
+            this.panel3.Size = new System.Drawing.Size(977, 611);
             this.panel3.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.saveIpAddressButton);
+            this.panel5.Controls.Add(this.IpAddressNameTextBox);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.userIpAddressTextBox);
+            this.panel5.Location = new System.Drawing.Point(51, 106);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(50, 50, 50, 25);
+            this.panel5.Size = new System.Drawing.Size(873, 318);
+            this.panel5.TabIndex = 4;
+            // 
+            // userIpAddressTextBox
+            // 
+            this.userIpAddressTextBox.Location = new System.Drawing.Point(53, 123);
+            this.userIpAddressTextBox.Name = "userIpAddressTextBox";
+            this.userIpAddressTextBox.Size = new System.Drawing.Size(309, 47);
+            this.userIpAddressTextBox.TabIndex = 1;
             // 
             // saveIpAddressButton
             // 
-            this.saveIpAddressButton.Location = new System.Drawing.Point(57, 229);
+            this.saveIpAddressButton.Location = new System.Drawing.Point(52, 215);
             this.saveIpAddressButton.Name = "saveIpAddressButton";
             this.saveIpAddressButton.Size = new System.Drawing.Size(310, 58);
             this.saveIpAddressButton.TabIndex = 2;
@@ -135,21 +164,61 @@ namespace Work_From_Home_Logger
             this.saveIpAddressButton.UseVisualStyleBackColor = true;
             this.saveIpAddressButton.Click += new System.EventHandler(this.saveIpAddressButton_Click);
             // 
-            // userIpAddressTextBox
-            // 
-            this.userIpAddressTextBox.Location = new System.Drawing.Point(53, 130);
-            this.userIpAddressTextBox.Name = "userIpAddressTextBox";
-            this.userIpAddressTextBox.Size = new System.Drawing.Size(833, 47);
-            this.userIpAddressTextBox.TabIndex = 1;
-            // 
             // UserIPLabel
             // 
             this.UserIPLabel.AutoSize = true;
-            this.UserIPLabel.Location = new System.Drawing.Point(53, 49);
+            this.UserIPLabel.Location = new System.Drawing.Point(75, 53);
             this.UserIPLabel.Name = "UserIPLabel";
-            this.UserIPLabel.Size = new System.Drawing.Size(314, 41);
+            this.UserIPLabel.Size = new System.Drawing.Size(261, 41);
             this.UserIPLabel.TabIndex = 0;
-            this.UserIPLabel.Text = "Your Home IP Address";
+            this.UserIPLabel.Text = "Add an IP Address";
+            this.UserIPLabel.Click += new System.EventHandler(this.UserIPLabel_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(53, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(159, 41);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Ip Address";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // IpAddressNameTextBox
+            // 
+            this.IpAddressNameTextBox.Location = new System.Drawing.Point(426, 123);
+            this.IpAddressNameTextBox.Name = "IpAddressNameTextBox";
+            this.IpAddressNameTextBox.Size = new System.Drawing.Size(311, 47);
+            this.IpAddressNameTextBox.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(426, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(409, 41);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Ip Address Name (e.g. Home)";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // userIpAddressesListView
+            // 
+            this.userIpAddressesListView.HideSelection = false;
+            this.userIpAddressesListView.Location = new System.Drawing.Point(53, 475);
+            this.userIpAddressesListView.Name = "userIpAddressesListView";
+            this.userIpAddressesListView.Size = new System.Drawing.Size(685, 242);
+            this.userIpAddressesListView.TabIndex = 2;
+            this.userIpAddressesListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // userIpAddressesLabel
+            // 
+            this.userIpAddressesLabel.AutoSize = true;
+            this.userIpAddressesLabel.Location = new System.Drawing.Point(53, 411);
+            this.userIpAddressesLabel.Name = "userIpAddressesLabel";
+            this.userIpAddressesLabel.Size = new System.Drawing.Size(334, 41);
+            this.userIpAddressesLabel.TabIndex = 3;
+            this.userIpAddressesLabel.Text = "Your saved IP addresses";
+            this.userIpAddressesLabel.Click += new System.EventHandler(this.label5_Click);
             // 
             // Form1
             // 
@@ -169,6 +238,8 @@ namespace Work_From_Home_Logger
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -189,6 +260,12 @@ namespace Work_From_Home_Logger
         private Label UserIPLabel;
         private Button saveIpAddressButton;
         private TextBox userIpAddressTextBox;
+        private Panel panel5;
+        private Label label3;
+        private Label label4;
+        private TextBox IpAddressNameTextBox;
+        private Label userIpAddressesLabel;
+        private ListView userIpAddressesListView;
     }
 }
 

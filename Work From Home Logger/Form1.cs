@@ -21,6 +21,7 @@ namespace Work_From_Home_Logger
             // Add this to the form class's constructor.  
             
             DisplayCurrentIpAddresses();
+            user = new User(1);
         }
 
         public User user { get; set; }
@@ -46,6 +47,16 @@ namespace Work_From_Home_Logger
             }
         }
 
+        private void SetUserIpAddressLabel()
+        {
+            if(String.IsNullOrWhiteSpace(user.Name))
+            {
+                userIpAddressesLabel.Text = "Your saved IP Addresses";
+                return;
+            }
+            userIpAddressesLabel.Text = $"{user.Name}'s IP Addresses";
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -57,21 +68,42 @@ namespace Work_From_Home_Logger
 
         private void saveNameButton_Click(object sender, EventArgs e)
         {
-            if(user == null)
-            {
-                user = new User();
-            }
-            user.Name = NameTextBox.Text;
+             user.Name = NameTextBox.Text;
+            SetUserIpAddressLabel();
         }
 
         private void saveIpAddressButton_Click(object sender, EventArgs e)
         {
-            if (user == null)
-            {
-                user = new User();
-            }
+            if (String.IsNullOrWhiteSpace(userIpAddressTextBox.Text)) { }
+            if (String.IsNullOrWhiteSpace(IpAddressNameTextBox.Text)) { }
 
-            user.IpAddresses = userIpAddressTextBox.Text;
+            var ipAddress = new IpAddressDetail();
+            ipAddress.Name = IpAddressNameTextBox.Text;
+            ipAddress.IpAddress = userIpAddressTextBox.Text;
+
+            user.IpAddresses.Add(ipAddress);
+            
+            userIpAddressesListView.Items.Add($"{ipAddress.Name}: {ipAddress.IpAddress}");
+        }
+
+        private void UserIPLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

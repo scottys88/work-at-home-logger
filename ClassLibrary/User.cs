@@ -10,13 +10,15 @@ namespace ClassLibrary
         {
 
         }
-        public User(string name)
+        public User(int userId)
         {
-            Name = name;
+            UserId = userId;
+            IpAddresses = new List<IpAddressDetail>();
         }
 
+        public int UserId { get; private set; }
         public string Name { get; set; }
-        public String IpAddresses { get; set; }
+        public List<IpAddressDetail> IpAddresses { get; set; }
 
     }
 }
