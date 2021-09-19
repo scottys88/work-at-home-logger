@@ -21,8 +21,11 @@ namespace Work_From_Home_Logger
             // Add this to the form class's constructor.  
             
             DisplayCurrentIpAddresses();
-            user = new User(1);
-            user.IpAddresses = new List<IpAddressDetail>();
+
+            var userRepository = new UserRepository();
+            User = userRepository.Retrieve(1);
+            //user = new User(1);
+            //user.IpAddresses = new List<IpAddressDetail>();
             SetUserIpAddressesBindingList();
         }
 
@@ -33,17 +36,12 @@ namespace Work_From_Home_Logger
             dataGridView1.DataSource = ipAddressBindingList;
         }
 
-        public User user { get; set; }
+        public User User { get; private set; }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
             
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void DisplayCurrentIpAddresses()
@@ -58,26 +56,18 @@ namespace Work_From_Home_Logger
 
         private void SetUserIpAddressLabel()
         {
-            if(String.IsNullOrWhiteSpace(user.Name))
+            if(String.IsNullOrWhiteSpace(User.Name))
             {
                 userIpAddressesLabel.Text = "Your saved IP Addresses";
                 return;
             }
-            userIpAddressesLabel.Text = $"{user.Name}'s IP Addresses";
+            userIpAddressesLabel.Text = $"{User.Name}'s IP Addresses";
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nameTextBox_TextChanged(object sender, EventArgs e)
-        {          
-        }
+        
 
         private void saveNameButton_Click(object sender, EventArgs e)
         {
-             user.Name = NameTextBox.Text;
+             User.Name = NameTextBox.Text;
             SetUserIpAddressLabel();
         }
 
@@ -91,46 +81,11 @@ namespace Work_From_Home_Logger
             {
                 Name = IpAddressNameTextBox.Text,
                 IpAddress = userIpAddressTextBox.Text,
-                IsActive = IsIpAddressActive(userIpAddressTextBox.Text)
+                IsActive = IpAddress.IsIpAddressActive(userIpAddressTextBox.Text)
             };
                        
-            user.IpAddresses.Add(ipAddress);
+            User.IpAddresses.Add(ipAddress);
             ipAddressBindingList.Add(ipAddress);                        
-        }
-
-        private bool IsIpAddressActive(string userEnteredIpAddress)
-        {
-            var IpAddresses = IpAddress.GetIpAddresses();            
-
-            bool userIpAddressMatches = false;
-            int i = 0;
-            while (!userIpAddressMatches && i < IpAddresses.Length)
-            {
-                var address = IpAddresses[i].ToString();
-                userIpAddressMatches = address == userEnteredIpAddress ? true : false;
-                i++;
-            }
-            return userIpAddressMatches;
-        }
-
-        private void UserIPLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

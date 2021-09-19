@@ -28,5 +28,25 @@ namespace ClassLibrary
 
             return addresses;
         }
+
+        /// <summary>
+        /// Returns a bool of if the users ip matches one on the machine
+        /// </summary>
+        /// <param name="userEnteredIpAddress">String of IP, e.g. 192.0.5.654</param>
+        /// <returns>boolean of match status</returns>
+        public static bool IsIpAddressActive(string userEnteredIpAddress)
+        {
+            var IpAddresses = GetIpAddresses();
+
+            bool userIpAddressMatches = false;
+            int i = 0;
+            while (!userIpAddressMatches && i < IpAddresses.Length)
+            {
+                var address = IpAddresses[i].ToString();
+                userIpAddressMatches = address == userEnteredIpAddress ? true : false;
+                i++;
+            }
+            return userIpAddressMatches;
+        }
     }
 }

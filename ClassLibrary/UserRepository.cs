@@ -8,9 +8,14 @@ namespace ClassLibrary
     {
         public UserRepository()
         {
-
+            
         }
 
+        public User Retrieve(int userId)
+        {
+            User user = new User(userId);            
+            return user;
+        }
 
     }
 }

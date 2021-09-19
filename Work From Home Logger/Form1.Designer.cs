@@ -89,7 +89,7 @@ namespace Work_From_Home_Logger
             this.userIpAddressesLabel.Size = new System.Drawing.Size(334, 41);
             this.userIpAddressesLabel.TabIndex = 3;
             this.userIpAddressesLabel.Text = "Your saved IP addresses";
-            this.userIpAddressesLabel.Click += new System.EventHandler(this.label5_Click);
+            
             // 
             // currentIpAddressListBox
             // 
@@ -107,8 +107,7 @@ namespace Work_From_Home_Logger
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(489, 41);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Your machines current IP Addresses";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Your machines current IP Addresses";            
             // 
             // panel2
             // 
@@ -135,8 +134,7 @@ namespace Work_From_Home_Logger
             this.NameTextBox.Location = new System.Drawing.Point(53, 94);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(833, 47);
-            this.NameTextBox.TabIndex = 1;
-            this.NameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
+            this.NameTextBox.TabIndex = 1;            
             // 
             // label2
             // 
@@ -145,8 +143,7 @@ namespace Work_From_Home_Logger
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 41);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Your name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Text = "Your name";            
             // 
             // panel3
             // 
@@ -165,8 +162,7 @@ namespace Work_From_Home_Logger
             this.UserIPLabel.Name = "UserIPLabel";
             this.UserIPLabel.Size = new System.Drawing.Size(261, 41);
             this.UserIPLabel.TabIndex = 0;
-            this.UserIPLabel.Text = "Add an IP Address";
-            this.UserIPLabel.Click += new System.EventHandler(this.UserIPLabel_Click);
+            this.UserIPLabel.Text = "Add an IP Address";            
             // 
             // panel5
             // 
@@ -206,7 +202,7 @@ namespace Work_From_Home_Logger
             this.label4.Size = new System.Drawing.Size(409, 41);
             this.label4.TabIndex = 1;
             this.label4.Text = "Ip Address Name (e.g. Home)";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            
             // 
             // label3
             // 
@@ -216,7 +212,7 @@ namespace Work_From_Home_Logger
             this.label3.Size = new System.Drawing.Size(159, 41);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ip Address";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // userIpAddressTextBox
             // 
