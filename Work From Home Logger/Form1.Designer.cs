@@ -32,7 +32,10 @@ namespace Work_From_Home_Logger
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.userIpAddressesLabel = new System.Windows.Forms.Label();
             this.currentIpAddressListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,25 +43,26 @@ namespace Work_From_Home_Logger
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.userIpAddressTextBox = new System.Windows.Forms.TextBox();
-            this.saveIpAddressButton = new System.Windows.Forms.Button();
             this.UserIPLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.saveIpAddressButton = new System.Windows.Forms.Button();
             this.IpAddressNameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.userIpAddressesListView = new System.Windows.Forms.ListView();
-            this.userIpAddressesLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.userIpAddressTextBox = new System.Windows.Forms.TextBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.userIpAddressesLabel);
-            this.panel1.Controls.Add(this.userIpAddressesListView);
             this.panel1.Controls.Add(this.currentIpAddressListBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1102, 81);
@@ -66,6 +70,26 @@ namespace Work_From_Home_Logger
             this.panel1.Padding = new System.Windows.Forms.Padding(50);
             this.panel1.Size = new System.Drawing.Size(791, 980);
             this.panel1.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(53, 440);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 102;
+            this.dataGridView1.RowTemplate.Height = 49;
+            this.dataGridView1.Size = new System.Drawing.Size(685, 375);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // userIpAddressesLabel
+            // 
+            this.userIpAddressesLabel.AutoSize = true;
+            this.userIpAddressesLabel.Location = new System.Drawing.Point(53, 353);
+            this.userIpAddressesLabel.Name = "userIpAddressesLabel";
+            this.userIpAddressesLabel.Size = new System.Drawing.Size(334, 41);
+            this.userIpAddressesLabel.TabIndex = 3;
+            this.userIpAddressesLabel.Text = "Your saved IP addresses";
+            this.userIpAddressesLabel.Click += new System.EventHandler(this.label5_Click);
             // 
             // currentIpAddressListBox
             // 
@@ -134,6 +158,16 @@ namespace Work_From_Home_Logger
             this.panel3.Size = new System.Drawing.Size(977, 611);
             this.panel3.TabIndex = 2;
             // 
+            // UserIPLabel
+            // 
+            this.UserIPLabel.AutoSize = true;
+            this.UserIPLabel.Location = new System.Drawing.Point(75, 53);
+            this.UserIPLabel.Name = "UserIPLabel";
+            this.UserIPLabel.Size = new System.Drawing.Size(261, 41);
+            this.UserIPLabel.TabIndex = 0;
+            this.UserIPLabel.Text = "Add an IP Address";
+            this.UserIPLabel.Click += new System.EventHandler(this.UserIPLabel_Click);
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.saveIpAddressButton);
@@ -147,13 +181,6 @@ namespace Work_From_Home_Logger
             this.panel5.Size = new System.Drawing.Size(873, 318);
             this.panel5.TabIndex = 4;
             // 
-            // userIpAddressTextBox
-            // 
-            this.userIpAddressTextBox.Location = new System.Drawing.Point(53, 123);
-            this.userIpAddressTextBox.Name = "userIpAddressTextBox";
-            this.userIpAddressTextBox.Size = new System.Drawing.Size(309, 47);
-            this.userIpAddressTextBox.TabIndex = 1;
-            // 
             // saveIpAddressButton
             // 
             this.saveIpAddressButton.Location = new System.Drawing.Point(52, 215);
@@ -163,26 +190,6 @@ namespace Work_From_Home_Logger
             this.saveIpAddressButton.Text = "Save your IP Address";
             this.saveIpAddressButton.UseVisualStyleBackColor = true;
             this.saveIpAddressButton.Click += new System.EventHandler(this.saveIpAddressButton_Click);
-            // 
-            // UserIPLabel
-            // 
-            this.UserIPLabel.AutoSize = true;
-            this.UserIPLabel.Location = new System.Drawing.Point(75, 53);
-            this.UserIPLabel.Name = "UserIPLabel";
-            this.UserIPLabel.Size = new System.Drawing.Size(261, 41);
-            this.UserIPLabel.TabIndex = 0;
-            this.UserIPLabel.Text = "Add an IP Address";
-            this.UserIPLabel.Click += new System.EventHandler(this.UserIPLabel_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 41);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Ip Address";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // IpAddressNameTextBox
             // 
@@ -201,24 +208,22 @@ namespace Work_From_Home_Logger
             this.label4.Text = "Ip Address Name (e.g. Home)";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // userIpAddressesListView
+            // label3
             // 
-            this.userIpAddressesListView.HideSelection = false;
-            this.userIpAddressesListView.Location = new System.Drawing.Point(53, 475);
-            this.userIpAddressesListView.Name = "userIpAddressesListView";
-            this.userIpAddressesListView.Size = new System.Drawing.Size(685, 242);
-            this.userIpAddressesListView.TabIndex = 2;
-            this.userIpAddressesListView.UseCompatibleStateImageBehavior = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(53, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(159, 41);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Ip Address";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // userIpAddressesLabel
+            // userIpAddressTextBox
             // 
-            this.userIpAddressesLabel.AutoSize = true;
-            this.userIpAddressesLabel.Location = new System.Drawing.Point(53, 411);
-            this.userIpAddressesLabel.Name = "userIpAddressesLabel";
-            this.userIpAddressesLabel.Size = new System.Drawing.Size(334, 41);
-            this.userIpAddressesLabel.TabIndex = 3;
-            this.userIpAddressesLabel.Text = "Your saved IP addresses";
-            this.userIpAddressesLabel.Click += new System.EventHandler(this.label5_Click);
+            this.userIpAddressTextBox.Location = new System.Drawing.Point(53, 123);
+            this.userIpAddressTextBox.Name = "userIpAddressTextBox";
+            this.userIpAddressTextBox.Size = new System.Drawing.Size(309, 47);
+            this.userIpAddressTextBox.TabIndex = 1;
             // 
             // Form1
             // 
@@ -234,12 +239,14 @@ namespace Work_From_Home_Logger
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,7 +272,8 @@ namespace Work_From_Home_Logger
         private Label label4;
         private TextBox IpAddressNameTextBox;
         private Label userIpAddressesLabel;
-        private ListView userIpAddressesListView;
+        private BindingSource bindingSource1;
+        private DataGridView dataGridView1;
     }
 }
 

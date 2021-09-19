@@ -4,8 +4,13 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    class IpAddressRepository
+    public class UserRepository
     {
+        public UserRepository()
+        {
+
+        }
+
 
     }
 }

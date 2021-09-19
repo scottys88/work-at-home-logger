@@ -22,6 +22,15 @@ namespace Work_From_Home_Logger
             
             DisplayCurrentIpAddresses();
             user = new User(1);
+            user.IpAddresses = new List<IpAddressDetail>();
+            SetUserIpAddressesBindingList();
+        }
+
+        public BindingList<IpAddressDetail> ipAddressBindingList { get; private set; } = new BindingList<IpAddressDetail>();
+
+        private void SetUserIpAddressesBindingList()
+        {
+            dataGridView1.DataSource = ipAddressBindingList;
         }
 
         public User user { get; set; }
@@ -77,13 +86,31 @@ namespace Work_From_Home_Logger
             if (String.IsNullOrWhiteSpace(userIpAddressTextBox.Text)) { }
             if (String.IsNullOrWhiteSpace(IpAddressNameTextBox.Text)) { }
 
-            var ipAddress = new IpAddressDetail();
-            ipAddress.Name = IpAddressNameTextBox.Text;
-            ipAddress.IpAddress = userIpAddressTextBox.Text;
 
+            var ipAddress = new IpAddressDetail()
+            {
+                Name = IpAddressNameTextBox.Text,
+                IpAddress = userIpAddressTextBox.Text,
+                IsActive = IsIpAddressActive(userIpAddressTextBox.Text)
+            };
+                       
             user.IpAddresses.Add(ipAddress);
-            
-            userIpAddressesListView.Items.Add($"{ipAddress.Name}: {ipAddress.IpAddress}");
+            ipAddressBindingList.Add(ipAddress);                        
+        }
+
+        private bool IsIpAddressActive(string userEnteredIpAddress)
+        {
+            var IpAddresses = IpAddress.GetIpAddresses();            
+
+            bool userIpAddressMatches = false;
+            int i = 0;
+            while (!userIpAddressMatches && i < IpAddresses.Length)
+            {
+                var address = IpAddresses[i].ToString();
+                userIpAddressMatches = address == userEnteredIpAddress ? true : false;
+                i++;
+            }
+            return userIpAddressMatches;
         }
 
         private void UserIPLabel_Click(object sender, EventArgs e)
