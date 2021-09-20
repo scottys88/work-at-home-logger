@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
+using Moq;
 
 namespace ClassLibrary.Tests
 {
@@ -18,6 +19,18 @@ namespace ClassLibrary.Tests
             var actual = IpAddress.GetHostName();
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void IsIpAddressActive_TestFalse()
+        {
+            var IpAddressTest = "192.0.0.168";
+            var expected = false;
+            var IpAddressClass = new IpAddress();
+
+            var actual = IpAddress.IsIpAddressActive(IpAddressTest);
+
+            Assert.AreNotEqual(expected, actual);
         }
     }
 }

@@ -39,9 +39,9 @@ namespace Work_From_Home_Logger
             this.currentIpAddressListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.saveNameButton = new System.Windows.Forms.Button();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.UserIPLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -51,12 +51,23 @@ namespace Work_From_Home_Logger
             this.label3 = new System.Windows.Forms.Label();
             this.userIpAddressTextBox = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,7 +76,7 @@ namespace Work_From_Home_Logger
             this.panel1.Controls.Add(this.userIpAddressesLabel);
             this.panel1.Controls.Add(this.currentIpAddressListBox);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1102, 81);
+            this.panel1.Location = new System.Drawing.Point(1072, 60);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50);
             this.panel1.Size = new System.Drawing.Size(791, 980);
@@ -89,7 +100,6 @@ namespace Work_From_Home_Logger
             this.userIpAddressesLabel.Size = new System.Drawing.Size(334, 41);
             this.userIpAddressesLabel.TabIndex = 3;
             this.userIpAddressesLabel.Text = "Your saved IP addresses";
-            
             // 
             // currentIpAddressListBox
             // 
@@ -107,17 +117,26 @@ namespace Work_From_Home_Logger
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(489, 41);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Your machines current IP Addresses";            
+            this.label1.Text = "Your machines current IP Addresses";
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.saveNameButton);
             this.panel2.Controls.Add(this.NameTextBox);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(53, 81);
+            this.panel2.Location = new System.Drawing.Point(74, 106);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(978, 320);
             this.panel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 41);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Your name";
             // 
             // saveNameButton
             // 
@@ -134,25 +153,16 @@ namespace Work_From_Home_Logger
             this.NameTextBox.Location = new System.Drawing.Point(53, 94);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(833, 47);
-            this.NameTextBox.TabIndex = 1;            
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 41);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Your name";            
+            this.NameTextBox.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.UserIPLabel);
             this.panel3.Controls.Add(this.panel5);
-            this.panel3.Location = new System.Drawing.Point(53, 450);
+            this.panel3.Location = new System.Drawing.Point(48, 60);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(50);
-            this.panel3.Size = new System.Drawing.Size(977, 611);
+            this.panel3.Size = new System.Drawing.Size(1001, 611);
             this.panel3.TabIndex = 2;
             // 
             // UserIPLabel
@@ -162,7 +172,7 @@ namespace Work_From_Home_Logger
             this.UserIPLabel.Name = "UserIPLabel";
             this.UserIPLabel.Size = new System.Drawing.Size(261, 41);
             this.UserIPLabel.TabIndex = 0;
-            this.UserIPLabel.Text = "Add an IP Address";            
+            this.UserIPLabel.Text = "Add an IP Address";
             // 
             // panel5
             // 
@@ -202,7 +212,6 @@ namespace Work_From_Home_Logger
             this.label4.Size = new System.Drawing.Size(409, 41);
             this.label4.TabIndex = 1;
             this.label4.Text = "Ip Address Name (e.g. Home)";
-            
             // 
             // label3
             // 
@@ -212,7 +221,6 @@ namespace Work_From_Home_Logger
             this.label3.Size = new System.Drawing.Size(159, 41);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ip Address";
-            
             // 
             // userIpAddressTextBox
             // 
@@ -221,14 +229,79 @@ namespace Work_From_Home_Logger
             this.userIpAddressTextBox.Size = new System.Drawing.Size(309, 47);
             this.userIpAddressTextBox.TabIndex = 1;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(25, 53);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1925, 1045);
+            this.tabControl1.TabIndex = 3;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.checkBox1);
+            this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Location = new System.Drawing.Point(10, 58);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1905, 977);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "User Details";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel3);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(10, 58);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1905, 977);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "IP Address Details";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dateTimePicker1);
+            this.tabPage3.Location = new System.Drawing.Point(10, 58);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1905, 977);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Timer details";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(92, 115);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(656, 47);
+            this.dateTimePicker1.TabIndex = 0;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(127, 506);
+            this.checkBox1.Name = "userAutoWorkdayCheckbox";
+            this.checkBox1.Size = new System.Drawing.Size(197, 45);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "Start workday automatically";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2003, 1142);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(50);
             this.Text = "Work from home logger";
@@ -243,6 +316,11 @@ namespace Work_From_Home_Logger
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -270,6 +348,13 @@ namespace Work_From_Home_Logger
         private Label userIpAddressesLabel;
         private BindingSource bindingSource1;
         private DataGridView dataGridView1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private TabPage tabPage3;
+        private Timer timer;
+        private DateTimePicker dateTimePicker1;
+        private CheckBox checkBox1;
     }
 }
 

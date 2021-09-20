@@ -21,7 +21,7 @@ namespace ClassLibrary
         /// <summary>
         /// Get an array of IP addresses based on the hostname
         /// </summary>
-        /// <returns>An array of host names</returns>
+        /// <returns>An array of IP Addresses</returns>
         public static IPAddress[] GetIpAddresses()
         {    
             IPAddress[] addresses = Dns.GetHostAddresses(GetHostName());

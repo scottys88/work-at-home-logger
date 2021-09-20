@@ -29,14 +29,13 @@ namespace Work_From_Home_Logger
             SetUserIpAddressesBindingList();
         }
 
+        public User User { get; private set; }
         public BindingList<IpAddressDetail> ipAddressBindingList { get; private set; } = new BindingList<IpAddressDetail>();
 
         private void SetUserIpAddressesBindingList()
         {
             dataGridView1.DataSource = ipAddressBindingList;
         }
-
-        public User User { get; private set; }
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,17 +75,24 @@ namespace Work_From_Home_Logger
             if (String.IsNullOrWhiteSpace(userIpAddressTextBox.Text)) { }
             if (String.IsNullOrWhiteSpace(IpAddressNameTextBox.Text)) { }
 
+            var isIpAddressMatching = IpAddress.IsIpAddressActive(userIpAddressTextBox.Text);
 
             var ipAddress = new IpAddressDetail()
             {
                 Name = IpAddressNameTextBox.Text,
                 IpAddress = userIpAddressTextBox.Text,
-                IsActive = IpAddress.IsIpAddressActive(userIpAddressTextBox.Text)
+                IsActive = isIpAddressMatching
             };
+
                        
+            
             User.IpAddresses.Add(ipAddress);
             ipAddressBindingList.Add(ipAddress);                        
         }
+
+
+
+
     }
 }
 
