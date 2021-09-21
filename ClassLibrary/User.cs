@@ -35,15 +35,24 @@ namespace ClassLibrary
             foreach (IPAddress ip in MachineIpAddresses)
             {
                 MachineIpAddressesList.Add(ip.ToString());
-            }
-
-            bool userIpAddressMatches = false;
+            }         
             
             var matchIps = IpAddresses
                 .Where(i => MachineIpAddressesList.Contains(i.IpAddress))
                 .ToList();
 
             return matchIps.Count > 0;            
+        }
+
+        public WorkDay CreateNewWorkDay()
+        {
+            var workdayRepository = new WorkDayRepository();
+            var workDay = workdayRepository.Retrieve();
+
+            workDay.StartTime = new DateTimeOffset(DateTime.Now);
+            workDay.StartTime = new DateTimeOffset(DateTime.Now.AddHours(8));
+
+            return workDay;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Work_From_Home_Logger
             User = userRepository.Retrieve(1);
             //user = new User(1);
             //user.IpAddresses = new List<IpAddressDetail>();
-            SetUserIpAddressesBindingList();
+            SetUserIpAddressesBindingList();            
         }
 
         public User User { get; private set; }
@@ -87,12 +87,14 @@ namespace Work_From_Home_Logger
                        
             
             User.IpAddresses.Add(ipAddress);
-            ipAddressBindingList.Add(ipAddress);                        
+            ipAddressBindingList.Add(ipAddress);
+            if(User.HasMatchingIpAddress())
+            {
+                User.WorkDayList.Add(User.CreateNewWorkDay());
+                Debug.WriteLine(User.WorkDayList[0].StartTime);
+                Debug.WriteLine(User.WorkDayList[0].EndTime);
+            }
         }
-
-
-
-
     }
 }
 
