@@ -26,15 +26,17 @@ namespace Work_From_Home_Logger
             User = userRepository.Retrieve(1);
             //user = new User(1);
             //user.IpAddresses = new List<IpAddressDetail>();
-            SetUserIpAddressesBindingList();            
+            setBindingLists();            
         }
 
         public User User { get; private set; }
         public BindingList<IpAddressDetail> ipAddressBindingList { get; private set; } = new BindingList<IpAddressDetail>();
+        public BindingList<WorkDay> workDayAddressBindingList { get; private set; } = new BindingList<WorkDay>();
 
-        private void SetUserIpAddressesBindingList()
+        private void setBindingLists()
         {
             dataGridView1.DataSource = ipAddressBindingList;
+            workdayDataGridView.DataSource = workDayAddressBindingList;
         }
 
 
@@ -77,22 +79,22 @@ namespace Work_From_Home_Logger
 
             var isIpAddressMatching = IpAddress.IsIpAddressActive(userIpAddressTextBox.Text);
 
-            var ipAddress = new IpAddressDetail()
+            var ipAddressDetail = new IpAddressDetail()
             {
                 Name = IpAddressNameTextBox.Text,
                 IpAddress = userIpAddressTextBox.Text,
                 IsActive = isIpAddressMatching
             };
 
-                       
-            
-            User.IpAddresses.Add(ipAddress);
-            ipAddressBindingList.Add(ipAddress);
+
+            User.IpAddresses.Add(ipAddressDetail); ;
+            ipAddressBindingList.Add(ipAddressDetail);
+
             if(User.HasMatchingIpAddress())
             {
-                User.WorkDayList.Add(User.CreateNewWorkDay());
-                Debug.WriteLine(User.WorkDayList[0].StartTime);
-                Debug.WriteLine(User.WorkDayList[0].EndTime);
+                var workday = User.CreateNewWorkDay();
+                User.WorkDayList.Add(workday);
+                workDayAddressBindingList.Add(workday);
             }
         }
     }

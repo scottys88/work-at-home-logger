@@ -50,7 +50,7 @@ namespace ClassLibrary
             var workDay = workdayRepository.Retrieve();
 
             workDay.StartTime = new DateTimeOffset(DateTime.Now);
-            workDay.StartTime = new DateTimeOffset(DateTime.Now.AddHours(8));
+            workDay.EndTime = new DateTimeOffset(DateTime.Now.AddHours(8));
 
             return workDay;
         }

@@ -53,11 +53,13 @@ namespace Work_From_Home_Logger
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.workdayBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workdayDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -68,6 +70,8 @@ namespace Work_From_Home_Logger
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.workdayBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workdayDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -242,6 +246,7 @@ namespace Work_From_Home_Logger
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.workdayDataGridView);
             this.tabPage2.Controls.Add(this.checkBox1);
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Location = new System.Drawing.Point(10, 58);
@@ -251,6 +256,16 @@ namespace Work_From_Home_Logger
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "User Details";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(127, 506);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(421, 45);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "Start workday automatically";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -275,10 +290,6 @@ namespace Work_From_Home_Logger
             this.tabPage3.Text = "Timer details";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // timer
-            // 
-            this.timer.Interval = 1000;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(92, 115);
@@ -286,15 +297,19 @@ namespace Work_From_Home_Logger
             this.dateTimePicker1.Size = new System.Drawing.Size(656, 47);
             this.dateTimePicker1.TabIndex = 0;
             // 
-            // checkBox1
+            // timer
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(127, 506);
-            this.checkBox1.Name = "userAutoWorkdayCheckbox";
-            this.checkBox1.Size = new System.Drawing.Size(197, 45);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Start workday automatically";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.timer.Interval = 1000;
+            // 
+            // workdayDataGridView
+            // 
+            this.workdayDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.workdayDataGridView.Location = new System.Drawing.Point(1127, 106);
+            this.workdayDataGridView.Name = "workdayDataGridView";
+            this.workdayDataGridView.RowHeadersWidth = 102;
+            this.workdayDataGridView.RowTemplate.Height = 49;
+            this.workdayDataGridView.Size = new System.Drawing.Size(700, 578);
+            this.workdayDataGridView.TabIndex = 3;
             // 
             // Form1
             // 
@@ -321,6 +336,8 @@ namespace Work_From_Home_Logger
             this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.workdayBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workdayDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,6 +372,8 @@ namespace Work_From_Home_Logger
         private Timer timer;
         private DateTimePicker dateTimePicker1;
         private CheckBox checkBox1;
+        private BindingSource workdayBindingSource;
+        private DataGridView workdayDataGridView;
     }
 }
 
